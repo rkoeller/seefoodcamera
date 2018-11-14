@@ -174,16 +174,15 @@ public class CameraActivity extends AppCompatActivity
 				intent.putExtra("image", imageFile);
 				setResult(Activity.RESULT_OK, intent);
         
-        // Tell the device that it a new picture was taken
-        // Will update the media scanner
-        sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageUri));        
+				// Tell the device that it a new picture was taken
+				// Will update the media scanner
+				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageUri));        
 			} else
 			{
 				setResult(Activity.RESULT_CANCELED);
 			}
 		}
 	}
-
 
 	private File createImageFile() throws IOException
 	{
@@ -198,5 +197,4 @@ public class CameraActivity extends AppCompatActivity
 		imagePath = image.getAbsolutePath();
 		return image;
 	}
-
 }
