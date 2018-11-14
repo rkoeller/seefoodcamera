@@ -173,6 +173,10 @@ public class CameraActivity extends AppCompatActivity
 				Intent intent = new Intent();
 				intent.putExtra("image", imageFile);
 				setResult(Activity.RESULT_OK, intent);
+        
+        // Tell the device that it a new picture was taken
+        // Will update the media scanner
+        sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageUri));        
 			} else
 			{
 				setResult(Activity.RESULT_CANCELED);
